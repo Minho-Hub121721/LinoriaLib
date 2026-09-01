@@ -39,7 +39,7 @@ local Library = {
     MainColor = Color3.fromRGB(18, 18, 18);
     BackgroundColor = Color3.fromRGB(0, 0, 0);
     AccentColor = Color3.fromRGB(0, 85, 255);
-    OutlineColor = Color3.fromRGB(70, 70, 70); -- soft gray border closer to the screenshot
+    OutlineColor = Color3.fromRGB(255, 255, 255); -- 완전 흰색 테두리
     RiskColor = Color3.fromRGB(255, 50, 50),
 
     Black = Color3.new(0, 0, 0);
@@ -2969,11 +2969,11 @@ function Library:CreateWindow(...)
     if type(Config.MenuFadeTime) ~= 'number' then Config.MenuFadeTime = 0.2 end
 
     if typeof(Config.Position) ~= 'UDim2' then Config.Position = UDim2.fromOffset(175, 50) end
-    -- Size similar to the screenshot (wide + not too tall, good for phone)
+    -- 모바일 사이즈 (너무 크지 않게)
     local isMobile = InputService.TouchEnabled
     if typeof(Config.Size) ~= 'UDim2' then
         if isMobile then
-            Config.Size = UDim2.fromOffset(720, 480)
+            Config.Size = UDim2.fromOffset(520, 380)
         else
             Config.Size = UDim2.fromOffset(550, 600)
         end
