@@ -36,10 +36,10 @@ local Library = {
     HudRegistry = {};
 
     FontColor = Color3.fromRGB(255, 255, 255);
-    MainColor = Color3.fromRGB(18, 18, 18);
-    BackgroundColor = Color3.fromRGB(0, 0, 0);
+    MainColor = Color3.fromRGB(28, 28, 28);
+    BackgroundColor = Color3.fromRGB(20, 20, 20);
     AccentColor = Color3.fromRGB(0, 85, 255);
-    OutlineColor = Color3.fromRGB(255, 255, 255); -- 완전 흰색 테두리
+    OutlineColor = Color3.fromRGB(50, 50, 50); -- 완전 흰색 테두리
     RiskColor = Color3.fromRGB(255, 50, 50),
 
     Black = Color3.new(0, 0, 0);
