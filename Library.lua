@@ -36,10 +36,10 @@ local Library = {
     HudRegistry = {};
 
     FontColor = Color3.fromRGB(255, 255, 255);
-    MainColor = Color3.fromRGB(15, 15, 15);
+    MainColor = Color3.fromRGB(18, 18, 18);
     BackgroundColor = Color3.fromRGB(0, 0, 0);
     AccentColor = Color3.fromRGB(0, 85, 255);
-    OutlineColor = Color3.fromRGB(255, 255, 255);
+    OutlineColor = Color3.fromRGB(70, 70, 70); -- soft gray border closer to the screenshot
     RiskColor = Color3.fromRGB(255, 50, 50),
 
     Black = Color3.new(0, 0, 0);
@@ -3003,7 +3003,7 @@ function Library:CreateWindow(...)
 
     local Inner = Library:Create('Frame', {
         BackgroundColor3 = Library.MainColor;
-        BorderColor3 = Library.AccentColor;
+        BorderColor3 = Library.OutlineColor; -- white-ish border like the screenshot
         BorderMode = Enum.BorderMode.Inset;
         Position = UDim2.new(0, 1, 0, 1);
         Size = UDim2.new(1, -2, 1, -2);
@@ -3013,14 +3013,14 @@ function Library:CreateWindow(...)
 
     Library:AddToRegistry(Inner, {
         BackgroundColor3 = 'MainColor';
-        BorderColor3 = 'AccentColor';
+        BorderColor3 = 'OutlineColor';
     });
 
     -- Logo image (left of title). Set Config.Logo = 'rbxassetid://XXXX' to use custom image
     local LogoImage = Library:Create('ImageLabel', {
         BackgroundTransparency = 1;
-        Position = UDim2.new(0, 5, 0, 2);
-        Size = UDim2.new(0, 20, 0, 20);
+        Position = UDim2.new(0, 6, 0, 3);
+        Size = UDim2.new(0, 18, 0, 18);
         Image = Config.Logo or '';
         ScaleType = Enum.ScaleType.Fit;
         ZIndex = 2;
@@ -3029,17 +3029,18 @@ function Library:CreateWindow(...)
 
     local WindowLabel = Library:CreateLabel({
         Position = UDim2.new(0, 28, 0, 0);
-        Size = UDim2.new(0, 0, 0, 25);
+        Size = UDim2.new(1, -100, 0, 25);
         Text = Config.Title or '';
         TextXAlignment = Enum.TextXAlignment.Left;
+        TextSize = 14;
         ZIndex = 1;
         Parent = Inner;
     });
 
-    -- "Rivals" label on the top right of the title bar
+    -- "Rivals" label on the top right of the title bar (matches the screenshot)
     local RivalsLabel = Library:CreateLabel({
-        Position = UDim2.new(1, -70, 0, 0);
-        Size = UDim2.new(0, 65, 0, 25);
+        Position = UDim2.new(1, -75, 0, 0);
+        Size = UDim2.new(0, 70, 0, 25);
         Text = 'Rivals';
         TextXAlignment = Enum.TextXAlignment.Right;
         TextSize = 14;
