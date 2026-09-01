@@ -2969,11 +2969,11 @@ function Library:CreateWindow(...)
     if type(Config.MenuFadeTime) ~= 'number' then Config.MenuFadeTime = 0.2 end
 
     if typeof(Config.Position) ~= 'UDim2' then Config.Position = UDim2.fromOffset(175, 50) end
-    -- Mobile-optimized size (1000x550) for phones/tablets; desktop keeps original
-    local isMobile = InputService.TouchEnabled and (not InputService.KeyboardEnabled or not InputService.MouseEnabled)
+    -- Size similar to the screenshot (wide + not too tall, good for phone)
+    local isMobile = InputService.TouchEnabled
     if typeof(Config.Size) ~= 'UDim2' then
         if isMobile then
-            Config.Size = UDim2.fromOffset(1000, 550)
+            Config.Size = UDim2.fromOffset(720, 480)
         else
             Config.Size = UDim2.fromOffset(550, 600)
         end
